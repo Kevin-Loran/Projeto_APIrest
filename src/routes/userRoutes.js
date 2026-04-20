@@ -5,11 +5,13 @@ import loginRequired from '../middlewares/loginRequired';
 
 const router = new Router();
 
-router.post('/', userController.store);
-router.get('/', userController.index);
+// isso aqui não é aplicável em uma aplicação real.
+// router.get('/', userController.index);// lista usuários
+// router.post('/', userController.store); // cria usuários
+
 router.get('/:id', userController.show);
-router.put('/:id', loginRequired, userController.update);
-router.delete('/:id', loginRequired, userController.delete);
+router.put('/', loginRequired, userController.update);
+router.delete('/', loginRequired, userController.delete);
 
 export default router;
 
