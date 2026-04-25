@@ -9,7 +9,7 @@ const router = new Router();
 // router.get('/', userController.index);// lista usuários
 // router.get('/', userController.show);// mostra usuario
 
-router.post('/', userController.store); // cria usuários
+router.post('/', loginRequired, userController.store); // cria usuários
 router.put('/', loginRequired, userController.update);
 router.delete('/', loginRequired, userController.delete);
 
