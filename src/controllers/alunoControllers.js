@@ -8,7 +8,7 @@ class AlunoControllrs {
       order: [['id', 'DESC'], [Foto, 'id', 'DESC']],
       include: {
         model: Foto,
-        attributes: ['filename'],
+        attributes: ['url', 'filename'],
       },
     });
     res.json(aluno);
@@ -37,13 +37,13 @@ class AlunoControllrs {
       }
 
       const aluno = await Aluno.findByPk(id, {
-      attributes: ['id', 'nome', 'sobrenome', 'email', 'idade', 'peso', 'altura'],
-      order: [['id', 'DESC'], [Foto, 'id', 'DESC']],
-      include: {
-        model: Foto,
-        attributes: ['filename'],
-      },
-    });
+        attributes: ['id', 'nome', 'sobrenome', 'email', 'idade', 'peso', 'altura'],
+        order: [['id', 'DESC'], [Foto, 'id', 'DESC']],
+        include: {
+          model: Foto,
+          attributes: ['url', 'filename'],
+        },
+      });
 
       if (!aluno) {
         return res.status(400).json({
